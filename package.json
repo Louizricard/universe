@@ -1,0 +1,17 @@
+{
+  "name": "universe-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Universe — Oficina Tátil Desktop com 70 ferramentas universais locais",
+  "scripts": {
+    "dev": "pnpm --filter @universe/desktop dev",
+    "build": "pnpm --filter @universe/desktop build",
+    "typecheck": "pnpm --filter @universe/desktop typecheck",
+    "test:frontend": "pnpm --filter @universe/desktop test",
+    "test:rust": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml",
+    "test:worker": "uv run --directory workers/python pytest",
+    "test": "pnpm test:frontend && pnpm test:worker && pnpm test:rust",
+    "tauri:dev": "pnpm --filter @universe/desktop tauri dev",
+    "tauri:build": "pnpm --filter @universe/desktop tauri build"
+  }
+}

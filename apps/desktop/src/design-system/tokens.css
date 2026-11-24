@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-chassis: #ECEAE4;
+  --bg-workbench: #F6F5F0;
+  --bg-module: #FFFFFF;
+  --bg-recessed: #E3E0D8;
+  --bg-hover: rgba(20, 22, 26, 0.055);
+  --bg-active: rgba(20, 22, 26, 0.095);
+  --border-subtle: rgba(20, 22, 26, 0.09);
+  --border-strong: rgba(20, 22, 26, 0.22);
+  --text-primary: #14161A;
+  --text-secondary: #525760;
+  --text-muted: #707680;
+  --accent-signal: #FF5500;
+  --accent-signal-hover: #E04A00;
+  --accent-signal-soft: rgba(255, 85, 0, 0.12);
+  --status-ok: #15803D;
+  --status-warn: #B45309;
+  --status-err: #B91C1C;
+  --keycap-bg: rgba(20, 22, 26, 0.09);
+  --keycap-text: #2C3038;
+  --shadow-module: 0 1px 2px rgba(20, 22, 26, 0.05), 0 0 0 1px var(--border-subtle);
+  --shadow-elevated: 0 14px 36px rgba(20, 22, 26, 0.14), 0 2px 6px rgba(20, 22, 26, 0.06);
+  --grid-dot: rgba(20, 22, 26, 0.09);
+
+  /* Category indicator LEDs */
+  --cat-docs: #2563EB;
+  --cat-pdf: #DC2626;
+  --cat-images: #9333EA;
+  --cat-downloads: #EA580C;
+  --cat-media: #0D9488;
+  --cat-utilities: #4F46E5;
+  --cat-extras: #CA8A04;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-chassis: #0F1114;
+  --bg-workbench: #16191E;
+  --bg-module: #1E2229;
+  --bg-recessed: #0B0D10;
+  --bg-hover: rgba(255, 255, 255, 0.065);
+  --bg-active: rgba(255, 255, 255, 0.11);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.20);
+  --text-primary: #F2F4F8;
+  --text-secondary: #9CA3AF;
+  --text-muted: #7C8492;
+  --accent-signal: #FF641A;
+  --accent-signal-hover: #FF7833;
+  --accent-signal-soft: rgba(255, 100, 26, 0.16);
+  --status-ok: #22C55E;
+  --status-warn: #F59E0B;
+  --status-err: #EF4444;
+  --keycap-bg: rgba(255, 255, 255, 0.11);
+  --keycap-text: #D1D5DB;
+  --shadow-module: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--border-subtle);
+  --shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(0, 0, 0, 0.35);
+  --grid-dot: rgba(255, 255, 255, 0.075);
+
+  /* Category indicator LEDs */
+  --cat-docs: #60A5FA;
+  --cat-pdf: #F87171;
+  --cat-images: #C084FC;
+  --cat-downloads: #FB923C;
+  --cat-media: #2DD4BF;
+  --cat-utilities: #818CF8;
+  --cat-extras: #FACC15;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-chassis);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-optical-sizing: auto;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.workbench-grid-bg {
+  background-color: var(--bg-recessed);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Precision focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent-signal);
+  outline-offset: 2px;
+}
+
+/* SVG mechanical group transform origin discipline */
+svg g[data-mech] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Custom slim industrial scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Reduced motion complete compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

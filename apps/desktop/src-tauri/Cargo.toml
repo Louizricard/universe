@@ -1,0 +1,25 @@
+[package]
+name = "universe-desktop"
+version = "0.1.0"
+description = "Universe — Oficina Tátil Desktop com 70 ferramentas universais locais"
+authors = ["Louizricard"]
+edition = "2021"
+
+[lib]
+name = "universe_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "io-util", "sync", "time", "fs"] }
+uuid = { version = "1", features = ["v4"] }
+sha2 = "0.10"
+hex = "0.4"
+dirs = "5"
+keyring = { version = "3", features = ["linux-native", "windows-native", "apple-native"] }
+thiserror = "2"
